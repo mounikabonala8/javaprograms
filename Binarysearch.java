@@ -1,72 +1,27 @@
-class node{
-    int data;
-    node left;
-    node right;
-    node(int data)
-    {
-        this.data=data;
-        this.left=null;
-        this.right=null;
-        
-    }
-}
-class tree
-{
-    node root;
-    tree()
-    {
-        this.root=null;
-    }
-    void insert(int n)
-    {
-        node newnode=new node(n);
-        if(this.root==null) this.root=newnode;
-        else{
-            node curr=this.root;
-            while(true)
-            {
-                if(n>curr.data)
-                {
-                    if(curr.right==null)
-                    {
-                        curr.right=newnode;
-                        break;
-                    }
-                    else{
-                        curr=curr.right;
-                    }
-                    }
-                    else{
-                        if(curr.left==null)
-                        {
-                            curr.left=newnode;
-                            break;
-                        }
-                        else{
-                            curr=curr.left;
-                        }
-                        }
-                    }
-                }
-            }
-            void inorder(node root)
-            {
-                if(root!=null)
-                {
-                    inorder(root.left);
-                    System.out.println(root.data);
-                    inorder(root.right);
-                }
-            }
-}
+import java.util.*;
 public class Binarysearch
 {
 	public static void main(String[] args) {
-	    tree t=new tree();
-	    t.insert(1);
-	    t.insert(3);
-	    t.insert(4);
-	    t.inorder(t.root);
-		
+	     int arr[]=new int[6];
+	     Scanner sc=new Scanner(System.in);
+	     for(int i=0;i<arr.length;i++)
+	     {
+	         arr[i]=sc.nextInt();
+	         
+	     }
+	     int n=sc.nextInt();
+	     int i=0;
+	     int j=arr.length-1;
+	     while(i<=j)
+	     {
+	         int mid=(i+j)/2;
+	         if(arr[mid]==n){
+	             System.out.println(mid);
+	             System.exit(0);
+	         }
+	        else if(arr[mid]<n) i=mid+1;
+	         else if(arr[mid]>n)j=mid-1;
+	     }
+	     System.out.println("not found");
 	}
 }
